@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 25% 11%;
+    --foreground: 0 0% 98%;
+    --card: 260 25% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 260 25% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 271 100% 45%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 315 100% 47%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 260 25% 21%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 271 100% 45%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 260 25% 21%;
+    --input: 260 25% 21%;
+    --ring: 271 100% 45%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary;
+}
+
+.gradient-border {
+  @apply relative rounded-lg p-[1px] overflow-hidden bg-gradient-to-r from-primary via-secondary to-primary;
+}
+
+.gradient-border::before {
+  content: "";
+  @apply absolute inset-[1px] bg-background rounded-lg z-0;
+}
+
+.gradient-bg {
+  @apply bg-gradient-to-br from-primary/20 via-secondary/20 to-primary/20;
+}
+
+.glass-effect {
+  @apply bg-white/5 backdrop-blur-lg;
+}
+
+.yt-lite {
+  @apply rounded-lg;
+}
+
+.yt-lite::before {
+  @apply rounded-lg;
+}
+
+.yt-lite > .lty-playbtn {
+  @apply text-primary border-primary;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 30px rgba(255,255,255,0.2); }
+  25% { text-shadow: 0 0 60px rgba(255,255,255,0.6); }
+  50% { text-shadow: 0 0 90px rgba(255,255,255,0.4); }
+  75% { text-shadow: 0 0 60px rgba(255,255,255,0.6); }
+  100% { text-shadow: 0 0 30px rgba(255,255,255,0.2); }
+}
+
+.glow-effect {
+  animation: glow 2s ease-in-out infinite;
+}
