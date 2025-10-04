@@ -21,7 +21,7 @@ const Hero = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white glow-effect">
-            Join the AI Revolution<br />in UI/UX Design
+            Join the AI Revolution<br />in UI/UX & AX Design
           </h1>
           <p className="text-xl mb-8 text-gray-300">
             Unlock the potential of AI in building products.<br />
