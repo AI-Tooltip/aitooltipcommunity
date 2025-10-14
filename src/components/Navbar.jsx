@@ -12,7 +12,7 @@ const Navbar = () => {
           className="flex justify-center"
         >
           <img
-            src="https://storage.googleapis.com/hostinger-horizons-assets-prod/1b27d1f0-e0df-4313-8a07-539dc8587da2/39163ff55f1900abff48ad718d92b4c7.png"
+            src="/logo.png"
             alt="AI Tooltip Logo"
             className="h-20 mb-8"
           />
