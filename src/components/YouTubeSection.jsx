@@ -36,7 +36,7 @@ const YouTubeSection = () => {
           >
             <div className="relative glass-effect p-2 rounded-lg z-10">
               <YouTubeEmbed
-                id="JVc7hvRtwyk"
+                id="zkMSBjvLmfk"
                 title="AI Tooltip YouTube Video"
               />
             </div>
