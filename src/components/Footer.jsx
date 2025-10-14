@@ -1,20 +1,26 @@
 import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Youtube, Instagram, Check } from "lucide-react"
+import { Youtube, Instagram, Check, Loader2 } from "lucide-react"
 
 const Footer = ({ newsletterEmail, setNewsletterEmail, onNewsletterSubmit }) => {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await onNewsletterSubmit(e)
-    setIsSubmitted(true)
-    
-    // Reset the button state after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
+    setIsLoading(true)
+    try {
+      await onNewsletterSubmit(e)
+      setIsSubmitted(true)
+      
+      // Reset the button state after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 5000)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const TikTokIcon = () => (
@@ -52,8 +58,13 @@ const Footer = ({ newsletterEmail, setNewsletterEmail, onNewsletterSubmit }) => 
                 required
                 className="flex-grow"
               />
-              <Button type="submit" variant="secondary" disabled={isSubmitted}>
-                {isSubmitted ? (
+              <Button type="submit" variant="secondary" disabled={isSubmitted || isLoading}>
+                {isLoading ? (
+                  <>
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                    Subscribing...
+                  </>
+                ) : isSubmitted ? (
                   <>
                     <Check className="w-4 h-4 mr-2" />
                     Awesome!

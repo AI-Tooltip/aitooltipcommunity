@@ -2,20 +2,26 @@ import React, { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Send, Check } from "lucide-react"
+import { Send, Check, Loader2 } from "lucide-react"
 
 const Contact = ({ contactForm, setContactForm, onSubmit }) => {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await onSubmit(e)
-    setIsSubmitted(true)
-    
-    // Reset the button state after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
+    setIsLoading(true)
+    try {
+      await onSubmit(e)
+      setIsSubmitted(true)
+      
+      // Reset the button state after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+      }, 5000)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -59,8 +65,13 @@ const Contact = ({ contactForm, setContactForm, onSubmit }) => {
                 required
               />
             </div>
-            <Button type="submit" className="w-full" disabled={isSubmitted}>
-              {isSubmitted ? (
+            <Button type="submit" className="w-full" disabled={isSubmitted || isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  Sending...
+                </>
+              ) : isSubmitted ? (
                 <>
                   <Check className="w-4 h-4 mr-2" />
                   Message sent, Jad will reply to you shortly
