@@ -15,7 +15,10 @@ module.exports = {
 				'2xl': '1400px',
 			},
 		},
-		extend: {
+			extend: {
+				fontFamily: {
+					sans: ['Nunito', 'sans-serif'],
+				},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

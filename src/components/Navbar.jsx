@@ -14,7 +14,7 @@ const Navbar = () => {
           <img
             src="/logo.png"
             alt="AI Tooltip Logo"
-            className="h-20 mb-8"
+            className="h-40 mb-8"
           />
         </motion.div>
       </div>
