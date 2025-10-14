@@ -37,7 +37,7 @@
 }
 
 .gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary;
+  @apply text-white;
 }
 
 .gradient-border {
