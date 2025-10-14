@@ -13,7 +13,7 @@ const Hero = () => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
       </div>
-      <div className="container mx-auto px-4 pt-40 pb-24 relative">
+      <div className="container mx-auto px-4 pt-64 pb-24 relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
